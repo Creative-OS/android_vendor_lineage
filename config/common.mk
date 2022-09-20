@@ -206,6 +206,9 @@ PRODUCT_PACKAGES += \
     start-ssh
 
 PRODUCT_COPY_FILES += \
+    vendor/lineage/prebuilt/common/etc/init/init.smartcharge.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.smartcharge.rc
+    
+PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
 
 # Storage manager
