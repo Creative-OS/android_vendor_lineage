@@ -30,10 +30,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.alarm_alert=into_the_night.ogg
 
 # HWUI
-PRODUCT_PRODUCT_PROPERTIES += \
-    debug.renderengine.backend?=skiaglthreaded \
-    debug.hwui.renderer?=skiagl \
-    debug.renderthread.skia.reduceopstasksplitting?=true
+#PRODUCT_PRODUCT_PROPERTIES += \
+#    debug.renderengine.backend?=skiaglthreaded \
+#    debug.hwui.renderer?=skiagl \
+#    debug.renderthread.skia.reduceopstasksplitting?=true
 
 # Media
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -109,15 +109,15 @@ endif
 # Bootanimation
 ifeq ($(SUSHI_BOOTANIMATION),720)
 # Sushi Bootanimation 720 by saavedra3
-PRODUCT_COPY_FILES += vendor/lineage/bootanimation/sushi_bootanimation_720.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+PRODUCT_COPY_FILES += vendor/lineage/bootanimation/sushi_bootanimation_720.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 else ifeq ($(SUSHI_BOOTANIMATION),1080)
 # Sushi Bootanimation 1080 by saavedra3
-PRODUCT_COPY_FILES += vendor/lineage/bootanimation/sushi_bootanimation_1080.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+PRODUCT_COPY_FILES += vendor/lineage/bootanimation/sushi_bootanimation_1080.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 else ifeq ($(SUSHI_BOOTANIMATION),1440)
 # Sushi Bootanimation 1440 by saavedra3
-PRODUCT_COPY_FILES += vendor/lineage/bootanimation/sushi_bootanimation_1440.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+PRODUCT_COPY_FILES += vendor/lineage/bootanimation/sushi_bootanimation_1440.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 else
-PRODUCT_COPY_FILES += vendor/lineage/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+PRODUCT_COPY_FILES += vendor/lineage/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 endif
 
 # Extra packages
@@ -130,9 +130,11 @@ PRODUCT_PACKAGES += \
     Updater
     
 ifeq ($(TARGET_USE_PIXEL_FINGERPRINT), true)
-BUILD_FINGERPRINT := "google/cheetah/cheetah:13/TQ1A.221205.012/9283063:user/release-keys"
+BUILD_FINGERPRINT := "google/raven/raven:13/TQ1A.221205.011/9244662:user/release-keys"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="cheetah-user 13 TQ1A.221205.012 9283063 release-keys"
+    PRIVATE_BUILD_DESC="raven-user 13 TQ1A.221205.011 9244662 release-keys"
 
 endif
+
+include vendor/lineage/config/artifactlist.mk
