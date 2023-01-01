@@ -41,3 +41,6 @@ ifeq ($(WITH_GMS),true)
         endif
     endif
 endif
+
+WITH_GMS = true
+include vendor/gms/products/gms.mk
