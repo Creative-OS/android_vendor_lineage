@@ -90,8 +90,9 @@ PRODUCT_PACKAGES += \
     Backgrounds \
     GameSpace \
     RepainterServicePriv \
-    ParallelSpacePrebuilt \
-    OmniJaws
+    ParallelSpace \
+    OmniJaws \
+    Updater
 
 # Spoof fingerprint for Google Play Services and SafetyNet
 ifeq ($(PRODUCT_OVERRIDE_GMS_FINGERPRINT),)
