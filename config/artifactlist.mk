@@ -7,8 +7,8 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/priv-app/GoogleExtServices/GoogleExtServices.apk \
     system/priv-app/TagGoogle/TagGoogle.apk \
     system/etc/permissions/android.hardware.biometrics.face.xml \
-    system/etc/permissions/privapp-permissions-org.pixelexperience.faceunlock.xml \
-    system/etc/sysconfig/hiddenapi-whitelist-org.pixelexperience.faceunlock.xml \
+    system/etc/permissions/privapp-permissions-com.crdroid.faceunlock.xml \
+    system/etc/sysconfig/hiddenapi-whitelist-com.crdroid.faceunlock.xml \
     system/fonts/RobotoFallback-VF.ttf \
     system/lib64/faceunlock_vendor_dependencies.so \
     system/lib64/libFaceDetectCA.so \
