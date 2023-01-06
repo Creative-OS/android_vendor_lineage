@@ -53,6 +53,7 @@ PRODUCT_COPY_FILES += \
     vendor/lineage/config/permissions/privapp_whitelist_ink.kscope.parallelspace.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp_whitelist_ink.kscope.parallelspace.xml
 
 # Blurs
+TARGET_ENABLE_BLUR ?= true
 ifeq ($(TARGET_ENABLE_BLUR), true)
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.sf.blurs_are_expensive=1 \
