@@ -168,6 +168,44 @@ trust_usb_control {
 }
 
 soong_config_module_type {
+    name: "needs_camera_boottime",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["needs_camera_boottime"],
+    properties: ["cppflags"],
+}
+
+needs_camera_boottime {
+    name: "needs_camera_boottime_defaults",
+    soong_config_variables: {
+        needs_camera_boottime: {
+            cppflags: ["-DTARGET_CAMERA_BOOTTIME_TIMESTAMP"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "target_alternative_futex_waiters",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["target_alternative_futex_waiters"],
+    properties: [
+        "cflags",
+        "cppflags",
+    ],
+}
+
+target_alternative_futex_waiters {
+    name: "target_alternative_futex_waiters_defaults",
+    soong_config_variables: {
+        target_alternative_futex_waiters: {
+            cflags: ["-DTARGET_ALTERNATIVE_FUTEX_WAITERS"],
+            cppflags: ["-DTARGET_ALTERNATIVE_FUTEX_WAITERS"],
+        },
+    },
+}
+
+soong_config_module_type {
     name: "egl_display_array",
     module_type: "cc_defaults",
     config_namespace: "lineageGlobalVars",
@@ -198,6 +236,40 @@ nvidia_enhancements {
     soong_config_variables: {
         uses_nvidia_enhancements: {
             cppflags: ["-DNV_ANDROID_FRAMEWORK_ENHANCEMENTS"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "disable_bluetooth_le_read_buffer_size_v2",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["disable_bluetooth_le_read_buffer_size_v2"],
+    properties: ["cppflags"],
+}
+
+disable_bluetooth_le_read_buffer_size_v2 {
+    name: "disable_bluetooth_le_read_buffer_size_v2_defaults",
+    soong_config_variables: {
+        disable_bluetooth_le_read_buffer_size_v2: {
+            cppflags: ["-DDISABLE_LE_READ_BUFFER_SIZE_V2"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "disable_bluetooth_le_set_host_feature",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["disable_bluetooth_le_set_host_feature"],
+    properties: ["cppflags"],
+}
+
+disable_bluetooth_le_set_host_feature {
+    name: "disable_bluetooth_le_set_host_feature_defaults",
+    soong_config_variables: {
+        disable_bluetooth_le_set_host_feature: {
+            cppflags: ["-DDISABLE_LE_SET_HOST_FEATURE"],
         },
     },
 }

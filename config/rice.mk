@@ -42,6 +42,26 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.rice.platform_release_codename=$(RICE_FLAVOR) \
     ro.ricelegal.url=https://www.manginasal.com/
 
+TARGET_ENABLE_OOS_GBOARD_PADDINGS ?=false
+ifeq ($(TARGET_ENABLE_OOS_GBOARD_PADDINGS), true)
+# Gboard
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.ime.kb_pad_port_b=1
+
+# Gboard side padding (OOS)
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.ime.kb_pad_port_l=7 \
+    ro.com.google.ime.kb_pad_port_r=7 \
+    ro.com.google.ime.kb_pad_land_l=14 \
+    ro.com.google.ime.kb_pad_land_r=14
+
+endif
+
+# Disable touch video heatmap to reduce latency, motion jitter, and CPU usage
+# on supported devices with Deep Press input classifier HALs and models
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.input.video_enabled=false
+
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
 ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
@@ -53,13 +73,16 @@ PRODUCT_COPY_FILES += \
     vendor/lineage/config/permissions/privapp_whitelist_ink.kscope.parallelspace.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp_whitelist_ink.kscope.parallelspace.xml
 
 # Blurs
-TARGET_ENABLE_BLUR ?= true
 ifeq ($(TARGET_ENABLE_BLUR), true)
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.sf.blurs_are_expensive=1 \
     ro.surface_flinger.supports_background_blur=1 \
     ro.launcher.blur.appLaunch=0
 endif
+
+# Disable async MTE on system_server
+PRODUCT_PRODUCT_PROPERTIES += \
+    arm64.memtag.process.system_server=off
 
 TARGET_BUILD_APERTURE_CAMERA ?= false
 ifeq ($(strip $(TARGET_BUILD_APERTURE_CAMERA)),true)
