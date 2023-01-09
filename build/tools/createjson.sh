@@ -16,7 +16,7 @@
 #
 
 #$1=TARGET_DEVICE, $2=PRODUCT_OUT, $3=FILE_NAME
-existingOTAjson=./vendor/riceOTA/$1.json
+existingOTAjson=./vendor/RiceDroidOTA/$1.json
 output=$2/$1.json
 
 #cleanup old file
