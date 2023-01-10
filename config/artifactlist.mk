@@ -34,6 +34,7 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/lib64/android.hardware.nfc@1.2.so \
     system/lib64/libnfc-nci.so \
     system/lib64/libnfc_nci_jni.so \
-    system/media/bootanimation.zip
+    system/media/bootanimation.zip \
+    system/priv-app/GooglePackageInstaller/GooglePackageInstaller.apk
 
 
