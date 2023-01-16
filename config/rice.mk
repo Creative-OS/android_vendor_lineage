@@ -42,21 +42,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.rice.platform_release_codename=$(RICE_FLAVOR) \
     ro.ricelegal.url=https://www.manginasal.com/
 
-TARGET_ENABLE_OOS_GBOARD_PADDINGS ?=false
-ifeq ($(TARGET_ENABLE_OOS_GBOARD_PADDINGS), true)
-# Gboard
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.ime.kb_pad_port_b=1
-
-# Gboard side padding (OOS)
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.ime.kb_pad_port_l=7 \
-    ro.com.google.ime.kb_pad_port_r=7 \
-    ro.com.google.ime.kb_pad_land_l=14 \
-    ro.com.google.ime.kb_pad_land_r=14
-
-endif
-
 # Disable touch video heatmap to reduce latency, motion jitter, and CPU usage
 # on supported devices with Deep Press input classifier HALs and models
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -108,6 +93,15 @@ PRODUCT_PACKAGES += \
     ParallelSpace \
     OmniJaws \
     Updater
+
+TARGET_ENABLE_PIXEL_GBOARD_PADDINGS ?= true
+ifeq ($(TARGET_ENABLE_PIXEL_GBOARD_PADDINGS), true)
+# Gboard
+# Keyboard bottom padding in dp for portrait mode and height ratio
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.ime.kb_pad_port_b=8 \
+    ro.com.google.ime.height_ratio=1.075
+endif
 
 # Spoof fingerprint for Google Play Services and SafetyNet
 ifeq ($(PRODUCT_OVERRIDE_GMS_FINGERPRINT),)
