@@ -5,6 +5,8 @@ $(call inherit-product-if-exists, vendor/addons/config.mk)
 $(call inherit-product-if-exists, vendor/lineage/audio/audio.mk)
 $(call inherit-product-if-exists, vendor/lineage/fonts/fonts.mk)
 
+-include vendor/gms/products/gms.mk
+
 PRODUCT_BRAND ?= riceDroid
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
