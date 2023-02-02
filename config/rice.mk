@@ -104,7 +104,6 @@ PRODUCT_PACKAGES += \
     OmniJaws \
     Updater
 
-TARGET_ENABLE_PIXEL_GBOARD_PADDINGS ?= true
 ifeq ($(TARGET_ENABLE_PIXEL_GBOARD_PADDINGS), true)
 # Gboard
 # Keyboard bottom padding in dp for portrait mode and height ratio
