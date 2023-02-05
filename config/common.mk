@@ -30,9 +30,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.strictmode.disable=true
 endif    
 
+
 # BtHelper
-PRODUCT_PACKAGES += \
-    BtHelper
+#PRODUCT_PACKAGES += \
+#    BtHelper
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
